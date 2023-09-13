@@ -1,5 +1,15 @@
 # React + TypeScript + Vite
 
+## Before using this template
+
+Use `npm-check-updates` to update the dependencies to the latest versions.
+
+```bash
+pnpx npm-check-updates -u
+```
+
+## About this template
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
