@@ -10,18 +10,18 @@ function App() {
     <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={viteLogo} className="logo inline" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo react inline" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1 className="my-[0.5em] font-bold">Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
+        <p className="my-[1em]">
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
