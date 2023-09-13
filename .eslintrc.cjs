@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config')
+const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
   root: true,
@@ -14,9 +14,6 @@ module.exports = defineConfig({
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'prettier'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
   },
-})
+});
