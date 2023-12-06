@@ -17,7 +17,7 @@ const prettierPluginRecommendedConfig = /** @type {any} */ (prettierPlugin.confi
 
 export default defineFlatConfig([
   {
-    files: ['src/**/*.ts', 'src/**/*.tsx'],
+    files: ['src/**/*.ts', 'src/**/*.tsx', 'vite.config.ts'],
     plugins: {
       '@typescript-eslint': /** @type {any} */ (tsPlugin),
       'react-hooks': reactHooksPlugin,
@@ -27,6 +27,9 @@ export default defineFlatConfig([
     },
     languageOptions: {
       parser: tsParser,
+      parserOptions: {
+        project: ['./tsconfig.json', './tsconfig.node.json'],
+      },
       globals: { ...globals.browser, ...globals.es2020 },
     },
     linterOptions: {
@@ -34,7 +37,8 @@ export default defineFlatConfig([
     },
     rules: {
       ...eslintJs.configs.recommended.rules,
-      ...tsPlugin.configs.recommended.rules,
+      ...tsPlugin.configs['strict-type-checked'].rules,
+      ...tsPlugin.configs['stylistic-type-checked'].rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactPlugin.configs['jsx-runtime'].rules,
       ...reactHooksPlugin.configs.recommended.rules,
