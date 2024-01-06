@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import styles from './app.module.scss';
 import reactLogo from './assets/react.svg';
 import { Button } from './components/button.tsx';
 import viteLogo from '/vite.svg';
 
-export function App() {
+export const App: FC = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -28,4 +28,4 @@ export function App() {
       <p className="text-[#888]">Click on the Vite and React logos to learn more</p>
     </div>
   );
-}
+};
