@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useState } from 'react';
-import styles from './App.module.scss';
+import styles from './app.module.scss';
 import reactLogo from './assets/react.svg';
-import { Button } from './components/Button.tsx';
+import { Button } from './components/button.tsx';
 import viteLogo from '/vite.svg';
 
 function App() {
