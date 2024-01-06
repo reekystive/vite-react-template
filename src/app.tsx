@@ -11,10 +11,10 @@ export const App: FC = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <div className="flex flex-row">
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className={classNames(styles.logo, styles.vue)} alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className={classNames(styles.logo, styles.react)} alt="React logo" />
         </a>
       </div>
