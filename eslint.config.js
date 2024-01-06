@@ -17,6 +17,9 @@ const prettierPluginRecommendedConfig = /** @type {any} */ (prettierPlugin.confi
 
 export default defineFlatConfig([
   {
+    ignores: ['**/*.module.scss.d.ts', '**/*.module.sass.d.ts'],
+  },
+  {
     files: ['src/**/*.ts', 'src/**/*.tsx', 'vite.config.ts'],
     plugins: {
       '@typescript-eslint': /** @type {any} */ (tsPlugin),
