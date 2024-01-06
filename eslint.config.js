@@ -17,10 +17,10 @@ const prettierPluginRecommendedConfig = /** @type {any} */ (prettierPlugin.confi
 
 export default defineFlatConfig([
   {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/*.module.scss.d.ts', '**/*.module.sass.d.ts'],
+    ignores: ['**/node_modules/**', '**/dist/**', '**/*.module.{scss,sass}.d.ts'],
   },
   {
-    files: ['src/**/*.ts', 'src/**/*.tsx', 'vite.config.ts'],
+    files: ['src/**/*.ts{,x}', 'vite.config.ts'],
     plugins: {
       '@typescript-eslint': /** @type {any} */ (tsPlugin),
       'react-hooks': reactHooksPlugin,
@@ -31,7 +31,7 @@ export default defineFlatConfig([
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.node.json'],
+        project: ['./tsconfig{,.node}.json'],
       },
       globals: { ...globals.browser, ...globals.es2020 },
     },
