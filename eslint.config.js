@@ -16,9 +16,7 @@ import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 const prettierPluginRecommendedConfig = /** @type {any} */ (prettierPlugin.configs).recommended;
 
 export default defineFlatConfig([
-  {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/*.module.{scss,sass}.d.ts'],
-  },
+  { ignores: ['**/node_modules/**', '**/dist/**', '**/*.module.{scss,sass}.d.ts'] },
   {
     files: ['src/**/*.ts{,x}', 'vite.config.ts'],
     plugins: {
