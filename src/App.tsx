@@ -1,30 +1,32 @@
+import classNames from 'classnames';
 import { useState } from 'react';
-import './App.scss';
+import styles from './App.module.scss';
 import reactLogo from './assets/react.svg';
+import { Button } from './components/Button.tsx';
 import viteLogo from '/vite.svg';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div>
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      <div className="flex flex-row">
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo inline" alt="Vite logo" />
+          <img src={viteLogo} className={classNames(styles.logo, styles.vue)} alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react inline" alt="React logo" />
+          <img src={reactLogo} className={classNames(styles.logo, styles.react)} alt="React logo" />
         </a>
       </div>
-      <h1 className="my-[0.5em] font-bold">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+      <h1 className="my-[0.5em] text-[3.2em] font-bold leading-[1.1]">Vite + React</h1>
+      <div className="py-[2em] text-center">
+        <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
         <p className="my-[1em]">
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+      <p className="text-[#888]">Click on the Vite and React logos to learn more</p>
+    </div>
   );
 }
 
