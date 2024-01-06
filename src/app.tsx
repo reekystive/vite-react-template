@@ -5,7 +5,7 @@ import reactLogo from './assets/react.svg';
 import { Button } from './components/button.tsx';
 import viteLogo from '/vite.svg';
 
-function App() {
+export function App() {
   const [count, setCount] = useState(0);
 
   return (
@@ -29,5 +29,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
