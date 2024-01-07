@@ -11,6 +11,8 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 // @ts-expect-error no declarations is available
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
+// @ts-expect-error no declarations is available
+import tailwindcssPlugin from 'eslint-plugin-tailwindcss';
 
 /** @type {import('eslint').ESLint.ConfigData} */
 const prettierPluginRecommendedConfig = /** @type {any} */ (prettierPlugin.configs).recommended;
@@ -25,6 +27,7 @@ export default defineFlatConfig([
       'react-refresh': reactRefreshPlugin,
       react: reactPlugin,
       prettier: prettierPlugin,
+      tailwindcss: tailwindcssPlugin,
     },
     languageOptions: {
       parser: tsParser,
@@ -45,6 +48,7 @@ export default defineFlatConfig([
       ...reactHooksPlugin.configs.recommended.rules,
       ...prettierConfigs.rules,
       ...prettierPluginRecommendedConfig.rules,
+      ...tailwindcssPlugin.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
