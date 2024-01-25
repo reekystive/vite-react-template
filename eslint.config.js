@@ -41,8 +41,8 @@ export default defineFlatConfig([
     },
     rules: {
       ...eslintJs.configs.recommended.rules,
-      ...tsPlugin.configs['strict-type-checked'].rules,
-      ...tsPlugin.configs['stylistic-type-checked'].rules,
+      ...tsPlugin.configs['strict-type-checked']?.rules,
+      ...tsPlugin.configs['stylistic-type-checked']?.rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactPlugin.configs['jsx-runtime'].rules,
       ...reactHooksPlugin.configs.recommended.rules,
