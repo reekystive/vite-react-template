@@ -72,3 +72,14 @@ declare module '@typescript-eslint/eslint-plugin' {
   };
   export default plugin;
 }
+
+declare module '@cspell/eslint-plugin' {
+  const plugin: {
+    rules: RuleModules;
+    configs: {
+      recommended: RuleRecords;
+      debug: RuleRecords;
+    };
+  };
+  export default plugin;
+}
