@@ -1,33 +1,23 @@
+/// <reference types="./types/eslint.config.d.ts" />
+
 import eslintJs from '@eslint/js';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import prettierConfigs from 'eslint-config-prettier';
 import { defineFlatConfig } from 'eslint-define-config';
 import prettierPlugin from 'eslint-plugin-prettier';
-import globals from 'globals';
-// @ts-expect-error no declarations is available
 import reactPlugin from 'eslint-plugin-react';
-// @ts-expect-error no declarations is available
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-// @ts-expect-error no declarations is available
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
-// @ts-expect-error no declarations is available
 import tailwindcssPlugin from 'eslint-plugin-tailwindcss';
-
-/** @type {import('eslint').ESLint.ConfigData} */
-const prettierPluginRecommendedConfig = /** @type {any} */ (prettierPlugin.configs).recommended;
+import globals from 'globals';
 
 export default defineFlatConfig([
   { ignores: ['**/node_modules/**', '**/dist/**', '**/*.module.{scss,sass}.d.ts'] },
   {
-    files: ['src/**/*.ts{,x}', 'vite.config.ts'],
-    plugins: {
-      '@typescript-eslint': /** @type {any} */ (tsPlugin),
-      'react-hooks': reactHooksPlugin,
-      'react-refresh': reactRefreshPlugin,
-      react: reactPlugin,
-      prettier: prettierPlugin,
-      tailwindcss: tailwindcssPlugin,
+    files: ['**/*.{,c,m}js', '**/*.{,c,m}ts{,x}'],
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
     },
     languageOptions: {
       parser: tsParser,
@@ -36,18 +26,23 @@ export default defineFlatConfig([
       },
       globals: { ...globals.browser, ...globals.es2020 },
     },
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+      prettier: prettierPlugin,
+      'react-hooks': reactHooksPlugin,
+      'react-refresh': reactRefreshPlugin,
+      react: reactPlugin,
+      tailwindcss: tailwindcssPlugin,
     },
     rules: {
       ...eslintJs.configs.recommended.rules,
-      ...tsPlugin.configs['strict-type-checked']?.rules,
-      ...tsPlugin.configs['stylistic-type-checked']?.rules,
+      ...tsPlugin.configs['strict-type-checked'].rules,
+      ...tsPlugin.configs['stylistic-type-checked'].rules,
+      ...prettierConfigs.rules,
+      ...prettierPlugin.configs.recommended.rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactPlugin.configs['jsx-runtime'].rules,
       ...reactHooksPlugin.configs.recommended.rules,
-      ...prettierConfigs.rules,
-      ...prettierPluginRecommendedConfig.rules,
       ...tailwindcssPlugin.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
