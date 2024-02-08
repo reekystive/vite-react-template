@@ -8,4 +8,10 @@ export default {
   tabWidth: 2,
   plugins: ['prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
   organizeImportsSkipDestructiveCodeActions: true,
+  overrides: [
+    {
+      files: 'tsconfig{,.node}.json',
+      options: { parser: 'jsonc' },
+    },
+  ],
 };
