@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -p tsconfig.json && vite build",
     "lint": "ESLINT_USE_FLAT_CONFIG=true eslint . --max-warnings 0",
     "preview": "vite preview"
   },
