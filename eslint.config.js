@@ -1,6 +1,7 @@
 /// <reference types="./types/eslint.config.d.ts" />
 
 import cSpellPlugin from '@cspell/eslint-plugin';
+import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
@@ -30,13 +31,13 @@ export default defineFlatConfig([
       globals: { ...globals.browser, ...globals.es2020 },
     },
     plugins: {
-      '@typescript-eslint': tsPlugin,
-      prettier: prettierPlugin,
-      '@cspell': cSpellPlugin,
-      'react-hooks': reactHooksPlugin,
-      'react-refresh': reactRefreshPlugin,
-      react: reactPlugin,
-      tailwindcss: tailwindcssPlugin,
+      '@typescript-eslint': fixupPluginRules(tsPlugin),
+      prettier: fixupPluginRules(prettierPlugin),
+      '@cspell': fixupPluginRules(cSpellPlugin),
+      'react-hooks': fixupPluginRules(reactHooksPlugin),
+      'react-refresh': fixupPluginRules(reactRefreshPlugin),
+      react: fixupPluginRules(reactPlugin),
+      tailwindcss: fixupPluginRules(tailwindcssPlugin),
     },
     rules: {
       ...eslintJs.configs.recommended.rules,
@@ -62,7 +63,7 @@ export default defineFlatConfig([
       ],
     },
     settings: {
-      react: { version: '18.2.0' },
+      react: { version: '18.3.1' },
     },
   },
 ]);
