@@ -1,69 +1,80 @@
-/// <reference types="./types/eslint.config.d.ts" />
-
-import cSpellPlugin from '@cspell/eslint-plugin';
-import { fixupPluginRules } from '@eslint/compat';
-import eslintJs from '@eslint/js';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import prettierConfigs from 'eslint-config-prettier';
-import { defineFlatConfig } from 'eslint-define-config';
+import cspellPlugin from '@cspell/eslint-plugin';
+import eslintJsPlugin from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
-import tailwindcssPlugin from 'eslint-plugin-tailwindcss';
 import globals from 'globals';
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import tsEslint from 'typescript-eslint';
 
-export default defineFlatConfig([
-  { ignores: ['**/node_modules/**', '**/dist/**', '**/*.module.{scss,sass}.d.ts'] },
-  {
-    files: ['**/*.{,c,m}js', '**/*.{,c,m}ts{,x}'],
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
+const typescriptConfigs = /** @type {import('eslint').Linter.Config[]} */ (
+  tsEslint.config({
+    plugins: {
+      '@typescript-eslint': tsEslint.plugin,
     },
     languageOptions: {
-      parser: tsParser,
+      parser: tsEslint.parser,
       parserOptions: {
-        project: ['./tsconfig{,.node}.json'],
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: { ...globals.browser, ...globals.es2020 },
     },
+    extends: [tsEslint.configs.strictTypeChecked, tsEslint.configs.stylisticTypeChecked],
+  })
+);
+
+/**
+ * @type {import('eslint').Linter.Config[]}
+ */
+const eslintConfig = [
+  { ignores: ['node_modules', 'dist'] },
+  { linterOptions: { reportUnusedDisableDirectives: true } },
+  eslintJsPlugin.configs.recommended,
+  ...typescriptConfigs,
+  {
+    files: ['**/*.{,c,m}{j,t}s{,x}'],
     plugins: {
-      '@typescript-eslint': fixupPluginRules(tsPlugin),
-      prettier: fixupPluginRules(prettierPlugin),
-      '@cspell': fixupPluginRules(cSpellPlugin),
-      'react-hooks': fixupPluginRules(reactHooksPlugin),
-      'react-refresh': fixupPluginRules(reactRefreshPlugin),
-      react: fixupPluginRules(reactPlugin),
-      tailwindcss: fixupPluginRules(tailwindcssPlugin),
+      'react-hooks': reactHooksPlugin,
+      'react-refresh': reactRefreshPlugin,
+      react: reactPlugin,
     },
     rules: {
-      ...eslintJs.configs.recommended.rules,
-      ...tsPlugin.configs['strict-type-checked'].rules,
-      ...tsPlugin.configs['stylistic-type-checked'].rules,
-      ...prettierConfigs.rules,
-      ...prettierPlugin.configs.recommended.rules,
-      ...cSpellPlugin.configs.recommended.rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactPlugin.configs['jsx-runtime'].rules,
       ...reactHooksPlugin.configs.recommended.rules,
-      ...tailwindcssPlugin.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
-      '@cspell/spellchecker': [
-        'warn',
-        {
-          checkComments: true,
-          numSuggestions: 3,
-          customWordListFile: resolve(dirname(fileURLToPath(import.meta.url)), 'cspell.config.yaml'),
-        },
-      ],
     },
     settings: {
       react: { version: '18.3.1' },
     },
   },
-]);
+  {
+    plugins: { '@cspell': cspellPlugin },
+    rules: {
+      '@cspell/spellchecker': [
+        'warn',
+        /** @type {import('@cspell/eslint-plugin').Options} */ ({
+          autoFix: true,
+          generateSuggestions: true,
+          numSuggestions: 3,
+          configFile: new URL('./cspell.config.yaml', import.meta.url).toString(),
+        }),
+      ],
+    },
+  },
+  eslintConfigPrettier,
+  {
+    plugins: { prettier: prettierPlugin },
+    rules: { 'prettier/prettier': 'error' },
+  },
+  {
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
+  },
+];
+
+export default eslintConfig;

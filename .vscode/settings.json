@@ -1,6 +1,8 @@
 {
-  "cSpell.words": ["tailwindcss"],
-  "editor.rulers": [120],
+  "editor.rulers": [80, 120],
   "eslint.useFlatConfig": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

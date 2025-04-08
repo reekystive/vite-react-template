@@ -14,12 +14,6 @@
     "checkJs": true,
     "outDir": "dist",
   },
-  "include": [
-    "vite.config.ts",
-    "eslint.config.js",
-    "postcss.config.js",
-    "tailwind.config.js",
-    ".prettierrc.mjs",
-    "types",
-  ],
+  "include": ["./*.ts", "./*.js", "./*.mjs"],
+  "exclude": ["src", "node_modules"],
 }
