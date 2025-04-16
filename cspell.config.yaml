@@ -2,6 +2,7 @@ words:
   - avenir
   - grayscale
   - reekystive
+  - WCAG
 flagWords:
   - blacklist -> blocklist
   - whitelist -> allowlist
