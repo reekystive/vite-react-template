@@ -5,7 +5,7 @@
 Use `npm-check-updates` to update the dependencies to the latest versions.
 
 ```bash
-pnpx npm-check-updates -u
+pnpx dlx npm-check-updates -u
 ```
 
 Remove `pnpm-lock.yaml` from `.gitignore`.
