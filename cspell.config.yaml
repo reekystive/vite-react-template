@@ -3,6 +3,7 @@ words:
   - clsx
   - grayscale
   - reekystive
+  - Vite
   - WCAG
 flagWords:
   - blacklist -> blocklist
