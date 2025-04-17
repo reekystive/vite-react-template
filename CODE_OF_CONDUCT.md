@@ -83,4 +83,9 @@ Use kebab-case to name files, for example `responsive-tabs.tsx`.
 
 ## Comments
 
-Comments are written in English.
+Comments are written in English. DO NOT write too many comments, prefer to write code that is self-explanatory.
+
+## Language
+
+- Always use English for comments, code, and documentation.
+- Use other languages for communication if needed.
