@@ -73,6 +73,7 @@ const eslintConfig = [
     rules: {
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-confusing-void-expression': 'off',
     },
   },
 ];
