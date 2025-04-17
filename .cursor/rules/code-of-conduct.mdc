@@ -3,4 +3,4 @@ description:
 globs: 
 alwaysApply: true
 ---
-Follow [CODE_OF_CONDUCT.md](mdc:CODE_OF_CONDUCT.md).
+Always read [CODE_OF_CONDUCT.md](mdc:CODE_OF_CONDUCT.md) actively before writing code.
