@@ -27,7 +27,7 @@ const typescriptConfigs = /** @type {import('eslint').Linter.Config[]} */ (
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
-      globals: { ...globals.browser, ...globals.es2020 },
+      globals: { ...globals.browser, ...globals.es2025 },
     },
     extends: [tsEslint.configs.strictTypeChecked, tsEslint.configs.stylisticTypeChecked],
   })
