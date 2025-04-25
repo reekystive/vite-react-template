@@ -8,6 +8,7 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 import globals from 'globals';
+import { fileURLToPath } from 'node:url';
 import tsEslint from 'typescript-eslint';
 
 /** @type {string[]} */
@@ -116,7 +117,7 @@ const eslintConfig = [
           autoFix: true,
           generateSuggestions: true,
           numSuggestions: 3,
-          configFile: new URL('./cspell.config.yaml', import.meta.url).toString(),
+          configFile: fileURLToPath(new URL('./cspell.config.yaml', import.meta.url)),
         }),
       ],
     },
