@@ -9,6 +9,8 @@ This project uses the following tech stack:
 - pnpm 10.5.2
 - eslint 9
 - cspell
+- vite 6.3.3
+- vitest 3.1.2
 
 ## TypeScript
 
@@ -50,6 +52,12 @@ When importing files, use the shortest path, do not use `/index` or `/index.ts` 
   "typescript.preferences.importModuleSpecifierEnding": "minimal"
 }
 ```
+
+## Tests
+
+This project uses Vitest for testing. You can run `pnpm test` to run all tests, or `pnpm test:watch` to run tests in watch mode.
+
+Always write tests for important components and functions. Put tests in the `__tests__` directory corresponding to the implementation file.
 
 ### CSpell Spell Check
 
