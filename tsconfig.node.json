@@ -4,6 +4,8 @@
     "module": "NodeNext",
     "target": "ESNext",
     "moduleResolution": "nodenext",
+    "resolvePackageJsonImports": true,
+    "resolvePackageJsonExports": true,
     "resolveJsonModule": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
