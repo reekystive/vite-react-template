@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -23,11 +24,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "useUnknownInCatchVariables": true,
-
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "useUnknownInCatchVariables": true
   },
   "include": ["src"]
 }
