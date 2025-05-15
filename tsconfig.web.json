@@ -24,7 +24,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+
+    "incremental": true,
+    "outDir": "./node_modules/.cache/tsc-web"
   },
   "include": ["src"],
   "exclude": ["**/node_modules/", "**/__tests__/"]

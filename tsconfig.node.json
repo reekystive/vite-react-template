@@ -14,8 +14,9 @@
     "types": ["node"],
     "allowJs": true,
     "checkJs": true,
-    "outDir": "dist",
+    "incremental": true,
+    "outDir": "./node_modules/.cache/tsc-node",
   },
   "include": ["./*.ts", "./.*.ts", "./*.js", "./.*.js", "./*.mjs", "./.*.mjs"],
-  "exclude": ["src", "**/node_modules/", "**/__tests__/"]
+  "exclude": ["src", "**/node_modules/", "**/__tests__/"],
 }
