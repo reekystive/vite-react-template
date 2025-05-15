@@ -26,5 +26,6 @@
     "noUncheckedIndexedAccess": true,
     "useUnknownInCatchVariables": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["**/node_modules/", "**/__tests__/"]
 }
