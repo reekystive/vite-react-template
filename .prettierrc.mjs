@@ -10,7 +10,7 @@ export default {
   organizeImportsSkipDestructiveCodeActions: true,
   overrides: [
     {
-      files: 'tsconfig{,.node}.json',
+      files: 'tsconfig{,.*}.json',
       options: { parser: 'jsonc' },
     },
   ],
