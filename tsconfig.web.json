@@ -15,7 +15,9 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -29,6 +31,10 @@
     "incremental": true,
     "rootDir": "./src",
     "outDir": "./node_modules/.cache/tsc-web",
+    // tsBuildInfoFile is generated at outDir/relativePathOfConfigFromRootDir/tsconfigName.tsbuildinfo by default,
+    // which is ./node_modules/.cache dir. explicitly set it to ./node_modules/.cache/tsc-web/tsconfig.web.tsbuildinfo here.
+    // https://github.com/microsoft/TypeScript/issues/30925#issuecomment-483371766
+    "tsBuildInfoFile": "./node_modules/.cache/tsc-web/tsconfig.web.tsbuildinfo",
   },
   "include": ["src"],
   "exclude": ["**/node_modules/", "**/__tests__/"],

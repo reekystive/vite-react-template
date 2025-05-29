@@ -7,7 +7,7 @@
     "#src/*": "./src/*"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json && vite build",
+    "build": "tsc --build tsconfig.json && vite build",
     "dev": "vite",
     "lint": "eslint . --max-warnings 0",
     "preview": "vite preview",
