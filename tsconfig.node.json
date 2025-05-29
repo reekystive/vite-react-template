@@ -15,6 +15,7 @@
     "allowJs": true,
     "checkJs": true,
     "incremental": true,
+    "rootDir": ".",
     "outDir": "./node_modules/.cache/tsc-node",
   },
   "include": ["./*.ts", "./.*.ts", "./*.js", "./.*.js", "./*.mjs", "./.*.mjs"],

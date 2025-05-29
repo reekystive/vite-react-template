@@ -27,6 +27,7 @@
     "useUnknownInCatchVariables": true,
 
     "incremental": true,
+    "rootDir": "./src",
     "outDir": "./node_modules/.cache/tsc-web",
   },
   "include": ["src"],
