@@ -13,7 +13,7 @@
     "lint:tsc": "tsc --build tsconfig.json",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "vitest run --coverage",
     "test:update": "vitest run --update",
     "test:watch": "vitest --watch"
   },
