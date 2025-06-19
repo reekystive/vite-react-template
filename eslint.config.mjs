@@ -39,7 +39,7 @@ const typescriptConfigs = /** @type {import('eslint').Linter.Config[]} */ (
  */
 const eslintConfig = [
   // config for all
-  { ignores: ['node_modules', 'dist'] },
+  { ignores: ['**/node_modules/', '**/dist/'] },
   { linterOptions: { reportUnusedDisableDirectives: true } },
 
   // config for javascript/typescript code

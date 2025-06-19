@@ -1,13 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./tsconfig.web.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "types": ["vite/client", "react", "react-dom", "vitest/globals"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "rootDir": ".",
     "outDir": "./node_modules/.cache/tsc-tests",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationMap": true
+    "emitDeclarationOnly": true
   },
   "include": ["**/__tests__/"],
   "exclude": ["**/node_modules/"]

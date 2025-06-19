@@ -10,7 +10,7 @@
     "build": "tsc --build tsconfig.json && vite build",
     "dev": "vite",
     "lint:eslint": "eslint . --cache --cache-strategy content --cache-location ./node_modules/.cache/eslint/eslintcache.json --max-warnings 0 --report-unused-disable-directives",
-    "lint:tsc": "tsc --build tsconfig.json",
+    "lint:tsc": "tsc --build tsconfig.json --noEmit",
     "preview": "vite preview",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

@@ -1,25 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "skipLibCheck": true,
-    "module": "NodeNext",
-    "target": "ESNext",
-    "moduleResolution": "nodenext",
-    "resolvePackageJsonImports": true,
-    "resolvePackageJsonExports": true,
-    "resolveJsonModule": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "useUnknownInCatchVariables": true,
     "types": ["node"],
-    "allowJs": true,
-    "checkJs": true,
-    "incremental": true,
-    "declaration": true,
-    "declarationMap": true,
     "rootDir": ".",
-    "outDir": "./node_modules/.cache/tsc-node"
+    "outDir": "./node_modules/.cache/tsc-node",
+    "tsBuildInfoFile": "./node_modules/.cache/tsc-node/tsconfig.node.tsbuildinfo",
+    "emitDeclarationOnly": true
   },
   "include": ["./*.ts", "./.*.ts", "./*.js", "./.*.js", "./*.mjs", "./.*.mjs", "./*.cjs", "./.*.cjs"],
-  "exclude": []
+  "exclude": ["**/node_modules/"]
 }
