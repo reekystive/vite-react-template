@@ -5,6 +5,7 @@
     "types": ["node"],
     "rootDir": ".",
     "outDir": "./node_modules/.cache/tsc-node",
+    // https://github.com/microsoft/TypeScript/issues/30925#issuecomment-483371766
     "tsBuildInfoFile": "./node_modules/.cache/tsc-node/tsconfig.node.tsbuildinfo",
     "emitDeclarationOnly": true
   },

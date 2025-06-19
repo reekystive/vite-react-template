@@ -9,7 +9,10 @@
     "allowImportingTsExtensions": true,
     "rootDir": ".",
     "outDir": "./node_modules/.cache/tsc-tests",
-    "emitDeclarationOnly": true
+    // https://github.com/microsoft/TypeScript/issues/30925#issuecomment-483371766
+    "tsBuildInfoFile": "./node_modules/.cache/tsc-tests/tsconfig.tests.tsbuildinfo",
+    "emitDeclarationOnly": true,
+    "jsx": "react-jsx"
   },
   "include": ["**/__tests__/"],
   "exclude": ["**/node_modules/"]
